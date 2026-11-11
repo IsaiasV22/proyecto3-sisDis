@@ -1,10 +1,14 @@
 "use strict"
 
-const clientPromise = require('./mongoDB');
+const redis = require('./redisDB');
 const headers = require('./headersCORS');
 const verifyToken = require('./verifyToken');
 
 const jsonHeaders = { ...headers, 'Content-Type': 'application/json' };
+
+// Cada entidad es un Hash de Redis: campo = _id, valor = registro en JSON.
+// El contador estadios_N solo se usa para asignar ids nuevos (INCR), nunca se decrementa.
+const hash = "estadios";
 
 const fields = ['nombre', 'ciudad', 'pais', 'capacidad', 'anio_inauguracion', 'imagen_url'];
 
@@ -21,24 +25,21 @@ exports.handler = async (event, context) => {
   }
 
   try {
-    const client = await clientPromise;
-    const db = client.db("catalogo-futbol");
-    const estadios = db.collection("estadios");
-
     // /api/estadios o /api/estadios/<id>
     const parts = event.path.split("/");
     const id = parseInt(parts[parts.indexOf("estadios") + 1]);
     const hasId = !Number.isNaN(id);
 
     if (event.httpMethod == "GET" && !hasId) {
-      const result = await estadios.find({}).toArray();
+      const values = await redis.hvals(hash);
+      const result = values.map(v => JSON.parse(v)).sort((a, b) => a._id - b._id);
       return { statusCode: 200, headers: jsonHeaders, body: JSON.stringify(result) };
     }
 
     if (event.httpMethod == "GET" && hasId) {
-      const estadio = await estadios.findOne({ _id: id });
-      if (!estadio) return { statusCode: 404, headers, body: 'Not found' };
-      return { statusCode: 200, headers: jsonHeaders, body: JSON.stringify(estadio) };
+      const value = await redis.hget(hash, id);
+      if (!value) return { statusCode: 404, headers, body: 'Not found' };
+      return { statusCode: 200, headers: jsonHeaders, body: value };
     }
 
     if (event.httpMethod != "POST") {
@@ -54,33 +55,33 @@ exports.handler = async (event, context) => {
     const data = JSON.parse(event.body);
 
     if (!hasId) {
-      const estadio = { _id: parseInt(data._id), ...pick(data) };
-      if (Number.isNaN(estadio._id)) {
-        return { statusCode: 400, headers, body: 'A numeric _id is required' };
-      }
-      await estadios.insertOne(estadio);
-      return { statusCode: 201, headers: jsonHeaders, body: JSON.stringify(estadio) };
+      // Como en el Tutorial 14, Redis asigna el id de forma atómica con INCR
+      // y se ignora el _id temporal que envía el frontend.
+      const newId = await redis.incr("estadios_N");
+      const record = { _id: newId, ...pick(data) };
+      await redis.hset(hash, newId, JSON.stringify(record));
+      return { statusCode: 201, headers: jsonHeaders, body: JSON.stringify(record) };
     }
 
-    const existing = await estadios.findOne({ _id: id });
+    const existing = await redis.hget(hash, id);
 
     if (data._method == "DELETE") {
       if (user.role != "admin") {
         return { statusCode: 403, headers, body: 'Solo un administrador puede eliminar registros' };
       }
       if (!existing) return { statusCode: 404, headers, body: 'Not found' };
-      const refs = await db.collection("equipos").countDocuments({ estadio_id: id });
-      if (refs > 0) {
+      const equipos = (await redis.hvals("equipos")).map(v => JSON.parse(v));
+      if (equipos.some(e => e.estadio_id === id)) {
         return { statusCode: 409, headers,
           body: 'No se puede eliminar: existen equipos que referencian este registro' };
       }
-      await estadios.deleteOne({ _id: id });
+      await redis.hdel(hash, id);
       return { statusCode: 204, headers, body: '' };
     }
 
     if (!existing) return { statusCode: 404, headers, body: 'Not found' };
-    await estadios.updateOne({ _id: id }, { $set: pick(data) });
-    const updated = await estadios.findOne({ _id: id });
+    const updated = { _id: id, ...pick(data) };
+    await redis.hset(hash, id, JSON.stringify(updated));
     return { statusCode: 200, headers: jsonHeaders, body: JSON.stringify(updated) };
 
   } catch (error) {
