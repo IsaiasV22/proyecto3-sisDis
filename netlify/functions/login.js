@@ -1,6 +1,6 @@
 "use strict"
 
-const clientPromise = require('./mongoDB');
+const redis = require('./redisDB');
 const headers = require('./headersCORS');
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
@@ -19,21 +19,21 @@ exports.handler = async (event, context) => {
       return { statusCode: 400, headers, body: "All input is required" };
     }
 
-    // El hash se obtiene de la base de datos, buscando al usuario por su email
-    const client = await clientPromise;
-    const user = await client.db("catalogo-futbol").collection("users")
-      .findOne({ email: data.email.toLowerCase() });
+    // El hash se obtiene de Redis buscando al usuario por su email (campo del Hash "users")
+    const value = await redis.hget("users", data.email.toLowerCase());
+    const user = value ? JSON.parse(value) : null;
 
     if (user && (await bcrypt.compare(data.password, user.password))) {
+      // El email es el identificador del usuario
       const token = jwt.sign(
-        { user_id: user._id, email: user.email, role: user.role },
+        { user_id: user.email, email: user.email, role: user.role },
         process.env.TOKEN_KEY,
         {
           expiresIn: "2h",
           algorithm: "HS256",
         }
       );
-      const body = { _id: user._id, name: user.name, email: user.email, role: user.role, token };
+      const body = { _id: user.email, name: user.name, email: user.email, role: user.role, token };
       return { statusCode: 200, headers, body: JSON.stringify(body) };
     }
     return { statusCode: 400, headers, body: 'Invalid Credentials' };
