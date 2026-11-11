@@ -1,0 +1,290 @@
+{
+  "ligas": [
+    {
+      "_id": 1,
+      "nombre": "Premier League",
+      "pais": "Inglaterra",
+      "confederacion": "UEFA",
+      "nivel": "1ra división",
+      "fundacion": 1992,
+      "logo_url": "https://r2.thesportsdb.com/images/media/league/badge/gasy9d1737743125.png"
+    },
+    {
+      "_id": 2,
+      "nombre": "Brasileirão Série A",
+      "pais": "Brasil",
+      "confederacion": "CONMEBOL",
+      "nivel": "1ra división",
+      "fundacion": 1959,
+      "logo_url": "https://r2.thesportsdb.com/images/media/league/badge/lywv7t1766787179.png"
+    },
+    {
+      "_id": 3,
+      "nombre": "MLS",
+      "pais": "Estados Unidos",
+      "confederacion": "CONCACAF",
+      "nivel": "1ra división",
+      "fundacion": 1993,
+      "logo_url": "https://r2.thesportsdb.com/images/media/league/badge/dqo6r91549878326.png"
+    },
+    {
+      "_id": 4,
+      "nombre": "Bundesliga",
+      "pais": "Alemania",
+      "confederacion": "UEFA",
+      "nivel": "1ra división",
+      "fundacion": 1963,
+      "logo_url": "https://r2.thesportsdb.com/images/media/league/badge/teqh1b1679952008.png"
+    },
+    {
+      "_id": 5,
+      "nombre": "Serie A",
+      "pais": "Italia",
+      "confederacion": "UEFA",
+      "nivel": "1ra división",
+      "fundacion": 1929,
+      "logo_url": "https://r2.thesportsdb.com/images/media/league/badge/67q3q21679951383.png"
+    },
+    {
+      "_id": 6,
+      "nombre": "English League Championship",
+      "pais": "Inglaterra",
+      "confederacion": "UEFA",
+      "nivel": "2da división",
+      "fundacion": 2004,
+      "logo_url": "https://r2.thesportsdb.com/images/media/league/badge/ty5a681688770169.png"
+    }
+  ],
+  "estadios": [
+    {
+      "_id": 1,
+      "nombre": "Etihad Stadium",
+      "ciudad": "Manchester",
+      "pais": "Inglaterra",
+      "capacidad": 62000,
+      "anio_inauguracion": 2002,
+      "imagen_url": "https://r2.thesportsdb.com/images/media/venue/thumb/qtwvus1420231540.jpg"
+    },
+    {
+      "_id": 2,
+      "nombre": "Emirates Stadium",
+      "ciudad": "Londres",
+      "pais": "Inglaterra",
+      "capacidad": 60338,
+      "anio_inauguracion": 2006,
+      "imagen_url": "https://r2.thesportsdb.com/images/media/venue/thumb/br6s761786310366.jpg"
+    },
+    {
+      "_id": 3,
+      "nombre": "London Stadium",
+      "ciudad": "Londres",
+      "pais": "Inglaterra",
+      "capacidad": 60000,
+      "anio_inauguracion": 2012,
+      "imagen_url": "https://r2.thesportsdb.com/images/media/venue/thumb/pgeutx1549800746.jpg"
+    },
+    {
+      "_id": 4,
+      "nombre": "Molineux Stadium",
+      "ciudad": "Wolverhampton",
+      "pais": "Inglaterra",
+      "capacidad": 31750,
+      "anio_inauguracion": 1889,
+      "imagen_url": "https://r2.thesportsdb.com/images/media/venue/thumb/xtvqvs1420753628.jpg"
+    },
+    {
+      "_id": 5,
+      "nombre": "Nubank Parque (Allianz Parque)",
+      "ciudad": "Sao Paulo",
+      "pais": "Brasil",
+      "capacidad": 43713,
+      "anio_inauguracion": 2014,
+      "imagen_url": "https://r2.thesportsdb.com/images/media/venue/thumb/x3bkfu1710015241.jpg"
+    },
+    {
+      "_id": 6,
+      "nombre": "Estadio do Maracana",
+      "ciudad": "Rio de Janeiro",
+      "pais": "Brasil",
+      "capacidad": 73139,
+      "anio_inauguracion": 1950,
+      "imagen_url": "https://r2.thesportsdb.com/images/media/venue/thumb/h8dimb1764150889.jpg"
+    },
+    {
+      "_id": 7,
+      "nombre": "Shell Energy Stadium",
+      "ciudad": "Houston",
+      "pais": "Estados Unidos",
+      "capacidad": 20656,
+      "anio_inauguracion": 2012,
+      "imagen_url": "https://r2.thesportsdb.com/images/media/venue/thumb/s9qci21726581167.jpg"
+    },
+    {
+      "_id": 8,
+      "nombre": "BMO Stadium",
+      "ciudad": "Los Angeles",
+      "pais": "Estados Unidos",
+      "capacidad": 22000,
+      "anio_inauguracion": 2018,
+      "imagen_url": "https://r2.thesportsdb.com/images/media/venue/thumb/5220k01726649564.jpg"
+    },
+    {
+      "_id": 9,
+      "nombre": "Allianz Arena",
+      "ciudad": "Munich",
+      "pais": "Alemania",
+      "capacidad": 75024,
+      "anio_inauguracion": 2005,
+      "imagen_url": "https://r2.thesportsdb.com/images/media/venue/thumb/uypvrq1420399659.jpg"
+    },
+    {
+      "_id": 10,
+      "nombre": "Signal Iduna Park",
+      "ciudad": "Dortmund",
+      "pais": "Alemania",
+      "capacidad": 81365,
+      "anio_inauguracion": 1974,
+      "imagen_url": "https://r2.thesportsdb.com/images/media/venue/thumb/ruuywx1421658343.jpg"
+    },
+    {
+      "_id": 11,
+      "nombre": "Stadio Giuseppe Meazza (San Siro)",
+      "ciudad": "Milan",
+      "pais": "Italia",
+      "capacidad": 80018,
+      "anio_inauguracion": 1926,
+      "imagen_url": "https://r2.thesportsdb.com/images/media/venue/thumb/uuw82a1731599902.jpg"
+    },
+    {
+      "_id": 12,
+      "nombre": "Stadio Olimpico",
+      "ciudad": "Roma",
+      "pais": "Italia",
+      "capacidad": 70634,
+      "anio_inauguracion": 1953,
+      "imagen_url": "https://r2.thesportsdb.com/images/media/venue/thumb/d0iaqs1731599683.jpg"
+    }
+  ],
+  "equipos": [
+    {
+      "_id": 1,
+      "nombre": "Manchester City",
+      "ciudad": "Manchester",
+      "pais": "Inglaterra",
+      "fundacion": 1880,
+      "escudo_url": "https://r2.thesportsdb.com/images/media/team/badge/vwpvry1467462651.png",
+      "estadio_id": 1,
+      "liga_id": 1
+    },
+    {
+      "_id": 2,
+      "nombre": "Arsenal",
+      "ciudad": "Londres",
+      "pais": "Inglaterra",
+      "fundacion": 1886,
+      "escudo_url": "https://r2.thesportsdb.com/images/media/team/badge/uyhbfe1612467038.png",
+      "estadio_id": 2,
+      "liga_id": 1
+    },
+    {
+      "_id": 3,
+      "nombre": "West Ham",
+      "ciudad": "Londres",
+      "pais": "Inglaterra",
+      "fundacion": 1895,
+      "escudo_url": "https://r2.thesportsdb.com/images/media/team/badge/yutyxs1467459956.png",
+      "estadio_id": 3,
+      "liga_id": 6
+    },
+    {
+      "_id": 4,
+      "nombre": "Wolves",
+      "ciudad": "Wolverhampton",
+      "pais": "Inglaterra",
+      "fundacion": 1877,
+      "escudo_url": "https://r2.thesportsdb.com/images/media/team/badge/u9qr031621593327.png",
+      "estadio_id": 4,
+      "liga_id": 6
+    },
+    {
+      "_id": 5,
+      "nombre": "Palmeiras",
+      "ciudad": "Sao Paulo",
+      "pais": "Brasil",
+      "fundacion": 1914,
+      "escudo_url": "https://r2.thesportsdb.com/images/media/team/badge/vsqwqp1473538105.png",
+      "estadio_id": 5,
+      "liga_id": 2
+    },
+    {
+      "_id": 6,
+      "nombre": "Flamengo",
+      "ciudad": "Rio de Janeiro",
+      "pais": "Brasil",
+      "fundacion": 1895,
+      "escudo_url": "https://r2.thesportsdb.com/images/media/team/badge/syptwx1473538074.png",
+      "estadio_id": 6,
+      "liga_id": 2
+    },
+    {
+      "_id": 7,
+      "nombre": "Houston Dynamo",
+      "ciudad": "Houston",
+      "pais": "Estados Unidos",
+      "fundacion": 2005,
+      "escudo_url": "https://r2.thesportsdb.com/images/media/team/badge/yvz9dq1707631352.png",
+      "estadio_id": 7,
+      "liga_id": 3
+    },
+    {
+      "_id": 8,
+      "nombre": "LAFC",
+      "ciudad": "Los Angeles",
+      "pais": "Estados Unidos",
+      "fundacion": 2014,
+      "escudo_url": "https://r2.thesportsdb.com/images/media/team/badge/7nbj2a1602103638.png",
+      "estadio_id": 8,
+      "liga_id": 3
+    },
+    {
+      "_id": 9,
+      "nombre": "Bayern Munich",
+      "ciudad": "Munich",
+      "pais": "Alemania",
+      "fundacion": 1900,
+      "escudo_url": "https://r2.thesportsdb.com/images/media/team/badge/01ogkh1716960412.png",
+      "estadio_id": 9,
+      "liga_id": 4
+    },
+    {
+      "_id": 10,
+      "nombre": "Dortmund",
+      "ciudad": "Dortmund",
+      "pais": "Alemania",
+      "fundacion": 1909,
+      "escudo_url": "https://r2.thesportsdb.com/images/media/team/badge/tqo8ge1716960353.png",
+      "estadio_id": 10,
+      "liga_id": 4
+    },
+    {
+      "_id": 11,
+      "nombre": "Inter",
+      "ciudad": "Milan",
+      "pais": "Italia",
+      "fundacion": 1908,
+      "escudo_url": "https://r2.thesportsdb.com/images/media/team/badge/ryhu6d1617113103.png",
+      "estadio_id": 11,
+      "liga_id": 5
+    },
+    {
+      "_id": 12,
+      "nombre": "Roma",
+      "ciudad": "Roma",
+      "pais": "Italia",
+      "fundacion": 1927,
+      "escudo_url": "https://r2.thesportsdb.com/images/media/team/badge/jwro2s1760820674.png",
+      "estadio_id": 12,
+      "liga_id": 5
+    }
+  ]
+}

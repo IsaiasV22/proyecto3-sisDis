@@ -1,0 +1,16 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+  functions = "netlify/functions"
+
+# El servicio REST conserva las rutas del Proyecto 1: /api/<entidad>[/<id>]
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+
+# Fallback de la SPA (rutas de vue-router)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

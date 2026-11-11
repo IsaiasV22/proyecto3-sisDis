@@ -1,0 +1,25 @@
+.DS_Store
+node_modules
+/dist
+
+# Netlify CLI
+.netlify
+
+# Secretos locales (MONGODB_URI, TOKEN_KEY, credenciales del seed)
+.env
+.env.*
+
+npm-debug.log*
+
+# Editor
+.idea
+.vscode
+
+# Material de referencia local (no se entrega)
+docs/
+
+# Zip de entrega
+*.zip
+
+#Claude
+CLAUDE.md
