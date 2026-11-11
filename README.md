@@ -12,7 +12,7 @@ Proyecto 3: EIF-508 Sistemas Distribuidos.
 
 | Rol | Correo | Contraseña | Puede |
 |---|---|---|---|
-| `admin` | El definido en `ADMIN_EMAIL` al ejecutar el seed | El definido en `ADMIN_PASSWORD` | Ver, crear, editar y borrar |
+| `admin` | `proyecto3@sisdis.com` | `proyecto3` | Ver, crear, editar y borrar |
 | `user` | La que se cree en **Registro** | La que se escoja | Ver, crear y editar (borrar responde 403) |
 
 Para ver el catálogo no hace falta iniciar sesión. Los datos originales se restauran con `npm run seed`.
