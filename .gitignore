@@ -5,7 +5,7 @@ node_modules
 # Netlify CLI
 .netlify
 
-# Secretos locales (MONGODB_URI, TOKEN_KEY, credenciales del seed)
+# Secretos locales (REDIS_*, TOKEN_KEY, credenciales del seed)
 .env
 .env.*
 

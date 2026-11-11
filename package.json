@@ -1,5 +1,5 @@
 {
-  "name": "catalogo-futbol",
+  "name": "catalogo-futbol-redis",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -10,8 +10,8 @@
   },
   "dependencies": {
     "bcryptjs": "^3.0.3",
+    "ioredis": "^6.0.0",
     "jsonwebtoken": "^9.0.3",
-    "mongodb": "^7.7.0",
     "vue": "^3.5.40",
     "vue-router": "^4.6.4"
   },
